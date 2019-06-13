@@ -21,6 +21,7 @@ pipeline {
         stage('Results') {
             steps{
                 echo 'stage Results'
+		archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
 		junit '**/build/test-results/test/TEST-*.xml'
             }
         }
